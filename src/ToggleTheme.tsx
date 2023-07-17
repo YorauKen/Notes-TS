@@ -1,10 +1,9 @@
-import React, {  useState } from 'react';
+import React, {   useState  } from 'react';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
-
-  
-  const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 	width: 62,
 	height: 34,
 	padding: 7,
@@ -51,11 +50,12 @@ import { styled } from '@mui/material/styles';
 	},
   }));
 
+
 const ToggleThemeComponent: React.FC = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const toggle = () => {
-	setIsDarkTheme(!isDarkTheme)
-    if (isDarkTheme) {
+	const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  	const toggle = () => {
+	setIsDarkMode(isDarkMode => !isDarkMode)
+    if (isDarkMode) {
       document.body.removeAttribute('data-bs-theme');
     } else {
       document.body.setAttribute('data-bs-theme', 'dark');
@@ -64,15 +64,18 @@ const ToggleThemeComponent: React.FC = () => {
 
   return (
 	<>
+	<nav className="navbar ">
+  	<div className="container-fluid">
+    <Link className="navbar-brand" to="/">
+		{isDarkMode && <img src="/writingbg1.png"/>}
+		{!isDarkMode && <img src="/writing1.png"/>}	
+    </Link>
 	{
-		isDarkTheme &&
-		<MaterialUISwitch onChange={toggle} defaultChecked/>
+		<MaterialUISwitch onChange={toggle} checked={isDarkMode}/>
 	}
-	{
-		!isDarkTheme && 
-		<MaterialUISwitch onChange={toggle} />
-	}
-    
+  	</div>
+	</nav>
+	
 	</>
   );
 };

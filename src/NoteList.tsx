@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 import { Tag } from "./App";
 import styles from './NoteList.module.css';
-import ToggleThemeComponent from "./ToggleTheme";
 
 
 
@@ -53,7 +52,6 @@ export function NoteList({availableTags , notes , onDeleteTag , onUpdateTag }:No
 						<Button variant="primary">Create</Button>
 					</Link>
 					<Button variant="outline-secondary" onClick={()=>setEditTagsModalIsOpen(true)}>Edit Tags</Button>
-					<ToggleThemeComponent/>
 				</Stack>
 			</Col>
 		</Row>

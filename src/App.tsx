@@ -9,6 +9,8 @@ import { NoteList } from "./NoteList"
 import { NoteLayout } from "./NoteLayout"
 import { Note } from "./Note"
 import { EditNote } from "./EditNote"
+import ToggleThemeComponent from "./ToggleTheme"
+
 
 export type Tag = {
   id:string,
@@ -91,10 +93,12 @@ function App(){
 
   return (
     <Container className="my-4">
+      <ToggleThemeComponent/>
+      <div></div>
       <Routes>
           <Route 
           path="/" 
-          element={ <NoteList notes={notesWithTags} 
+          element={<NoteList notes={notesWithTags} 
           availableTags={tags} onUpdateTag={updateTag} onDeleteTag={deleteTag}/>}
           />
           <Route 
