@@ -11,27 +11,43 @@ type NoteFormProps = {
   availableTags: Tag[];
 } & Partial<NoteData>;
 
+interface Option {
+  value: string;
+  label: string;
+}
+
+const options: Option[] = [
+  { value: 'javascript', label: 'Javascript' },
+  { value: 'python', label: 'Python' },
+  { value: 'c', label: 'C' },
+];
+
+
 export function NoteForm({
   onSubmit,
   onAddTag,
   availableTags,
   title = "",
   markdown = "",
+  code = "",
+  language= '',
   tags = [],
 }: NoteFormProps) {
   const titleRef = useRef<HTMLInputElement>(null);
   const markdownRef = useRef<HTMLTextAreaElement>(null);
+  const codeRef = useRef<HTMLTextAreaElement>(null);
   const [selectedTags, setSelectedTags] = useState<Tag[]>(tags);
+  const languageRef = useRef<HTMLSelectElement>(null);
+
   const navigate = useNavigate();
-  
-
-
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     onSubmit({
       title: titleRef.current!.value,
       markdown: markdownRef.current!.value,
+      code:codeRef.current!.value,
       tags: selectedTags,
+      language:languageRef.current!.value
     });
     navigate("..");
   }
@@ -41,7 +57,7 @@ export function NoteForm({
       <Stack gap={4}>
         <Row>
           <Col>
-            <Form.Group controlId="title">
+            <Form.Group controlId="title" className="position-relative">
               <Form.Label>Title</Form.Label>
               <Form.Control required ref={titleRef} defaultValue={title} />
             </Form.Group>
@@ -73,7 +89,8 @@ export function NoteForm({
             </Form.Group>
           </Col>
         </Row>
-        <Form.Group controlId="markdown">
+        <Stack direction="horizontal" gap={2}>
+        <Form.Group controlId="markdown" className="w-100 p-3">
           <Form.Label>Body</Form.Label>
           <Form.Control
             required
@@ -83,6 +100,27 @@ export function NoteForm({
             defaultValue={markdown}
           />
         </Form.Group>
+        <Form.Group controlId="code" className="w-100 p-3 ">
+          <Form.Label>Code</Form.Label>
+          <Form.Select 
+            className="mb-1" 
+            ref={languageRef}
+            >
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+              {option.label} 
+                </option>
+              ))}
+          </Form.Select>
+          <Form.Control
+            as="textarea"
+            rows={14}
+            ref={codeRef}
+            defaultValue={code}
+            className="bg-primary-subtle text-body-emphasis"
+          />
+        </Form.Group>
+        </Stack>
         <Stack direction="horizontal" gap={2} className="justify-content-end">
           <Button type="submit" variant="primary">
             Save

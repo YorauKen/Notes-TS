@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 import { Tag } from "./App";
 import styles from './NoteList.module.css';
-
-
+import chroma from "chroma-js";
 
 type SimpNote = {
 	tags:Tag[]
 	title:string
 	id:string
+	language:string
 }
 
 
@@ -71,6 +71,20 @@ export function NoteList({availableTags , notes , onDeleteTag , onUpdateTag }:No
 					<Form.Group controlId="tags">
 					<Form.Label>Tags</Form.Label>
 					<ReactSelect 
+						styles={{
+							control: (baseStyles, state) => ({
+							  ...baseStyles,
+							  borderColor: state.isFocused ? 'blue' : 'gray',
+							  backgroundColor : "-moz-initial"
+							}),
+							option: (provided,state) => ({
+								...provided,
+								backgroundColor:"lightgray",
+								'&:hover': { backgroundColor: state.isSelected ? '#192E49' : '#ffffff' },
+								color:"black",
+							}),
+							
+						}}
 						value={	selectedTags.map( tag => {
 							return { label : tag.label , value : tag.id }
 						})} 
@@ -91,7 +105,7 @@ export function NoteList({availableTags , notes , onDeleteTag , onUpdateTag }:No
 		<Row xs={1} sm={2} lg={3} xl={4} className="g-3">
 			{filteredNotes.map(note => (
 				<Col key={note.id}>
-					<NoteCard id={note.id} title={note.title} tags={note.tags}/>
+					<NoteCard id={note.id} title={note.title} tags={note.tags} language = {note.language}/>
 				</Col>
 			))}
 		</Row>
@@ -102,22 +116,31 @@ export function NoteList({availableTags , notes , onDeleteTag , onUpdateTag }:No
 }
 
 
-function NoteCard({id , title , tags}:SimpNote){
+function NoteCard({id , title , tags , language}:SimpNote){
+
+	function lang(language:string){
+		if( language === 'javascript') return '.js';
+		else if(language === 'python') return '.py';
+		else return '.c';
+	}
+
 	return <Card as={Link} to={`${id}`} className={`h-100-text-reset text-decoration-none ${styles.card}`}>
 		<Card.Body>
 			<Stack gap={2} className="align-items-center justify-content-center h-100">
 				<span className="fs-5">{title}</span>
 				{tags.length>0 && (
 					<Stack 
-						gap={1} 
-						direction="horizontal" 
-						className="justify-content-center flex-wrap">
+					gap={1} 
+					direction="horizontal" 
+					className="justify-content-center flex-wrap">
 						{	tags.map(tag => (
 							<Badge className="text-truncate" key={tag.id}>{tag.label}	
 							</Badge>
 						))}
 					</Stack>
-				)}
+					
+					)}
+				<Badge className="fs-10 bg-warning">{lang(language)}</Badge>
 			</Stack>
 		</Card.Body>
 	</Card>

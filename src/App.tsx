@@ -28,13 +28,17 @@ export type RawNote = {
 export type RawNoteData = {
   title:string,
   markdown:string,
+  code:string,
   tagIds:string[]
+  language:string
 }
 
 export type NoteData = {
   title:string,
   markdown:string,
+  code:string
   tags : Tag[]
+  language:string
 }
 
 function App(){
@@ -92,7 +96,7 @@ function App(){
   }
 
   return (
-    <Container className="my-4">
+    <Container>
       <ToggleThemeComponent/>
       <div></div>
       <Routes>
