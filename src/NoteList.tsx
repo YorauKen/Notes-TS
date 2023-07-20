@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 import { Tag } from "./App";
 import styles from './NoteList.module.css';
-import chroma from "chroma-js";
 
 type SimpNote = {
 	tags:Tag[]

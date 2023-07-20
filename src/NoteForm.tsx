@@ -30,7 +30,6 @@ export function NoteForm({
   title = "",
   markdown = "",
   code = "",
-  language= '',
   tags = [],
 }: NoteFormProps) {
   const titleRef = useRef<HTMLInputElement>(null);
@@ -46,8 +45,8 @@ export function NoteForm({
       title: titleRef.current!.value,
       markdown: markdownRef.current!.value,
       code:codeRef.current!.value,
+      language:languageRef.current!.value,
       tags: selectedTags,
-      language:languageRef.current!.value
     });
     navigate("..");
   }
