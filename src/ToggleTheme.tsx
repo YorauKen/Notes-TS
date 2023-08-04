@@ -66,7 +66,7 @@ const ToggleThemeComponent: React.FC = () => {
 	<>
 	<nav className="navbar ">
   	<div className="container-fluid">
-    <Link className="navbar-brand" to="/">
+    <Link className="navbar-brand fixed" to="/">
 		{isDarkMode && <img src="/writingbg1.png"/>}
 		{!isDarkMode && <img src="/writing1.png"/>}	
     </Link>
