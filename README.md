@@ -2,11 +2,12 @@
 ![writing1](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/b50813d1-f8b2-43c6-90e8-8cc8eff87820)
 
 its a simple Typescript Project using React Hooks and Bootstrap5 
-![image](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/c3da2d74-3162-45f4-8a59-927cfcf32321)
-![image](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/81d773d9-1e28-4d4c-8a86-5de4e6f5e7b2)
-![image](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/334d6e5c-76da-4e52-a218-a7b56af2fe17)
+![Screenshot 2023-08-18 212059](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/eda3f67d-d65f-4fa7-ac9b-98d964d5580c)
+![Screenshot 2023-08-18 212035](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/983008a8-01ee-432a-af60-622334564e9a)
+![Screenshot 2023-08-18 212003](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/d8a70012-f758-45be-8c98-266d46809eb6)
 
-The CodeNotes App is a powerful and versatile tool designed to help you organize and manage your notes seamlessly. Unlike traditional note-taking apps, CodeNotes allows you to create custom notes that include code snippets, which are automatically highlighted for better readability. Additionally, you can create custom tags to categorize your notes, making it easier to find and reference them in the future.
+
+The Notes App is a powerful and versatile tool designed to help you organize and manage your notes seamlessly. Unlike traditional note-taking apps, CodeNotes allows you to create custom notes that include code snippets, which are automatically highlighted for better readability. Additionally, you can create custom tags to categorize your notes, making it easier to find and reference them in the future.
 
 # Features
 
