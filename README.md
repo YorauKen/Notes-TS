@@ -2,7 +2,6 @@
 ![writing1](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/b50813d1-f8b2-43c6-90e8-8cc8eff87820)
 
 its a simple Typescript Project using React Hooks and Bootstrap5 
-![Screenshot 2023-08-18 212059](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/eda3f67d-d65f-4fa7-ac9b-98d964d5580c)
 ![Screenshot 2023-08-18 212035](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/983008a8-01ee-432a-af60-622334564e9a)
 ![Screenshot 2023-08-18 212003](https://github.com/HiteshYadav007/Notes-TS/assets/97785257/d8a70012-f758-45be-8c98-266d46809eb6)
 
