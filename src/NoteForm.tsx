@@ -65,6 +65,20 @@ export function NoteForm({
             <Form.Group controlId="tags">
               <Form.Label>Tags</Form.Label>
               <CreatableReactSelect
+                styles={{
+							control: (baseStyles, state) => ({
+							  ...baseStyles,
+							  borderColor: state.isFocused ? 'blue' : 'gray',
+							  backgroundColor : "-moz-initial"
+							}),
+							option: (provided,state) => ({
+								...provided,
+								backgroundColor:"lightgray",
+								'&:hover': { backgroundColor: state.isSelected ? '#192E49' : '#ffffff' },
+								color:"black",
+							}),
+							
+						  }}
                 onCreateOption={(label) => {
                   const newTag = { id: uuidV4(), label };
                   onAddTag(newTag);
